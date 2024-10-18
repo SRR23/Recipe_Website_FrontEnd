@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>Delicious - Food Blog Template | Receipe Post</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <i class="circle-preloader"></i>
+        <img src="img/core-img/salad.png" alt="">
+    </div>
+
+    <!-- Search Wrapper -->
+    <div class="search-wrapper">
+        <!-- Close Btn -->
+        <div class="close-btn"><i class="fa fa-times" aria-hidden="true"></i></div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form id="search-form" action="#" method="post">
+                        <input type="text" id="search-query" name="search" placeholder="Type any keywords...">
+                        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+
+        <!-- Top Header Area -->
+        <div class="top-header-area">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center justify-content-between">
+                    <!-- Breaking News -->
+                    <div class="col-12 col-sm-6">
+                        <div class="breaking-news">
+                            <div id="breakingNewsTicker" class="ticker">
+                                <ul>
+                                    <li><a href="#">Hello World!</a></li>
+                                    <li><a href="#">This is Shaidur Rahman.</a></li>
+                                    <li><a href="#">I made this website dynamic.</a></li>
+                                    <li><a href="#">I create all the functional api</a></li>
+                                    <li><a href="#">using Django Rest Framework.</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Top Social Info -->
+                    
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Navbar Area -->
+        <div class="delicious-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="deliciousNav">
+
+                        <!-- Logo -->
+                        <a class="nav-brand" href="index.html"><img src="img/core-img/Yummy.png" alt=""></a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- close btn -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li class="active"><a href="index.html">Home</a></li>
+                                    <li><a href="#">Categories</a>
+                                        <ul class="dropdown" id="category-dropdown">
+                                            
+                                            
+                                        </ul>
+                                    </li>
+                                    
+                                    <li><a href="recipe_list.html">Recipes</a></li>
+                                    
+                                    <li id="user-menu">
+                                        <a href="login.html" id="login-link">Login</a>
+
+                                        <ul class="dropdown" id="user-dropdown" style="display: none;">
+                                            <li><a href="profile.html">Profile</a></li>
+                                            <li><a href="my_recipe.html">My Recipe</a></li>
+                                            <li><a href="favourite_recipe.html">Favourite</a></li>
+                                            <li><a href="#">Logout</a></li>
+                                            
+                                        </ul>
+
+                                    </li>
+                                    
+                                </ul>
+
+                                <!-- Newsletter Form -->
+                                <div class="search-btn">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </div>
+
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Breadcumb Area Start ##### -->
+    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcumb-text text-center">
+                        <h2>Recipe Detail</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcumb Area End ##### -->
+
+    <div class="receipe-post-area section-padding-80">
+
+        <!-- Receipe Slider -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="receipe-slider owl-carousel">
+                        <!-- Add your slider images here -->
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+        <!-- Receipe Content Area -->
+       <!-- Receipe Content Area -->
+        <div class="receipe-content-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <div class="receipe-headline my-5">
+                            <button id="is_favourited" class="btn btn-primary">Add Favourites</button>
+                            <span id="created-date"></span>
+                            <h2 id="recipe-title"></h2>
+                            <h2 id="recipe-author"></h2>
+                           
+                        </div>
+                        <div class="receipe-duration">
+                            <h6 id="prep-time"></h6>
+                            <h6 id="cook-time"></h6>
+                            <h6 id="servings"></h6>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="receipe-ratings text-right my-5">
+                            <div class="ratings" id="recipe-rating" data-rating="0">
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+                <div class="row">
+                    
+                    <div class="col-12 col-lg-8" id="instructions-container">
+                        <!-- Instructions will be dynamically injected here -->
+                        
+                        <div class="single-preparation-step d-flex">
+                            <!-- Instructions content -->
+                        </div>
+                    </div>
+
+                    <!-- Ingredients -->
+                    <div class="col-12 col-lg-4">
+                        <div class="ingredients">
+                            <h4>Ingredients</h4>
+                            <ul id="ingredients-list">
+                                <!-- Ingredients will be dynamically injected here -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comments Section -->
+                <div class="col-12 mt-5">
+                    <h3>User Comments</h3>
+                    <div id="comments-section"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-heading text-left">
+                            <h3>Leave a comment</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="contact-form-area">
+                            <form action="#" method="post" id="comment-form">
+                                <div class="row">
+                                    <!-- Rating selection -->
+                                    <div class="col-12">
+                                        <label for="rating">Select Rating:</label>
+                                        <select name="rating" id="rating" class="form-control">
+                                            <option value="5">5 Stars</option>
+                                            <option value="4">4 Stars</option>
+                                            <option value="3">3 Stars</option>
+                                            <option value="2">2 Stars</option>
+                                            <option value="1">1 Star</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Comment Text Area -->
+                                    <div class="col-12">
+                                        <textarea name="message" class="form-control" id="comment" cols="30" rows="10" placeholder="Write your comment here..."></textarea>
+                                    </div>
+
+                                    <!-- Submit Button (hidden for non-logged-in users) -->
+                                    <div class="col-12">
+                                        <button class="btn delicious-btn mt-30" type="submit" id="post-comment-btn">Post Comments</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="login-message" style="display: none;">
+                    <p>Please log in to post a comment and rating.</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    
+
+    
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-12 h-100 d-flex flex-wrap align-items-center justify-content-between">
+                    <!-- Footer Social Info -->
+                    
+                    <!-- Footer Logo -->
+                    <div class="footer-logo">
+                        <a href="index.html"><img src="img/core-img/Yummy.png" alt=""></a>
+                    </div>
+                    <!-- Copywrite -->
+                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ##### Footer Area Start ##### -->
+
+    <!-- ##### All Javascript Files ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="js/config_url.js"></script>
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="js/plugins/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+    <script src="js/recipe_detail.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/category.js"></script>
+    <script src="js/category_list.js"></script>
+    <script src="js/search_list.js"></script>
+    <script src="js/nav_active.js"></script>
+    
+    <!-- Include SweetAlert from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    
+</body>
+
+</html>
