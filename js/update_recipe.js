@@ -47,7 +47,7 @@ if (updateForm) {
             });
 
             // Pre-fill the image URL (if applicable)
-            const imageElement = document.querySelector('#image'); // Assuming this is an <img> tag
+            const imageElement = document.querySelector('#image-preview'); // Assuming this is an <img> tag for preview
             if (recipe.image) {
                 imageElement.src = recipe.image; // Set the image source to the recipe image URL
             }
@@ -60,23 +60,31 @@ if (updateForm) {
     updateForm.addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent default form submission
 
-        const updatedRecipe = {
-            title: document.querySelector('#title').value,
-            category: document.querySelector('#ctg').value,
-            prep_time: document.querySelector('#prep_time').value,
-            cook_time: document.querySelector('#cook_time').value,
-            servings: document.querySelector('#servings').value,
-            ingredients: document.querySelector('#ingredients').value, // Keep it as a string
-            instructions: document.querySelector('#instructions').value, // Keep it as a string
-        };
+        // Create a new FormData object
+        const formData = new FormData();
+
+        // Append the text data
+        formData.append('title', document.querySelector('#title').value);
+        formData.append('category', document.querySelector('#ctg').value);
+        formData.append('prep_time', document.querySelector('#prep_time').value);
+        formData.append('cook_time', document.querySelector('#cook_time').value);
+        formData.append('servings', document.querySelector('#servings').value);
+        formData.append('ingredients', document.querySelector('#ingredients').value); // Keep it as a string
+        formData.append('instructions', document.querySelector('#instructions').value); // Keep it as a string
+
+        // Append the image file (if a new one is selected)
+        const imageInput = document.querySelector('#image');
+        if (imageInput.files.length > 0) {
+            formData.append('image', imageInput.files[0]);
+        }
 
         fetch(updateApiUrl, {
             method: 'PUT', // or 'PATCH' depending on your API
             headers: {
-                'Authorization': `Token ${token}`,
-                'Content-Type': 'application/json'
+                'Authorization': `Token ${token}`
+                // Do not set Content-Type, it will be set automatically by the browser
             },
-            body: JSON.stringify(updatedRecipe)
+            body: formData
         })
             .then(response => {
                 if (!response.ok) {
@@ -86,7 +94,7 @@ if (updateForm) {
             })
             .then(data => {
                 console.log('Recipe updated successfully:', data);
-                
+
                 // Use SweetAlert to show success message
                 Swal.fire({
                     title: "Success!",
@@ -94,7 +102,7 @@ if (updateForm) {
                     icon: "success"
                 }).then(() => {
                     // Redirect after SweetAlert is closed
-                    window.location.href = 'my_recipe.html'; 
+                    window.location.href = 'my_recipe.html';
                 });
             })
             .catch(error => {

@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 confirmButtonText: 'OK'
             }).then(() => {
                 // Redirect to the favourite_recipe.html page after user clicks 'OK'
-                window.location.href = '/favourite_recipe.html';
+                window.location.href = 'favourite_recipe.html';
             });
         })
         .catch(error => {
