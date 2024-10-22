@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     confirmButtonText: 'OK'
                 }).then(() => {
                     document.getElementById('register-form').reset(); // Clear the form after successful registration
-                    window.location.href = 'favourite_recipe.html';
+                    window.location.href = 'login.html';
                 });
             } else {
                 Swal.fire({
