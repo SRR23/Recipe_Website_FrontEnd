@@ -94,18 +94,28 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
+    // Function to calculate the average rating from reviews
+    function calculateAverageRating(reviews) {
+        if (reviews.length === 0) return 0;
+        const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
+        return (totalRating / reviews.length).toFixed(1); // Return average rounded to one decimal
+    }
+
     // Function to update star rating display
     function updateStarRating(reviews) {
         const ratingContainer = document.getElementById('recipe-rating');
         const stars = ratingContainer.querySelectorAll('i');
-        const totalRating = reviews.reduce((acc, review) => acc + review.rating, 0);
-        const averageRating = reviews.length > 0 ? (totalRating / reviews.length).toFixed(1) : 0;
 
+        // Calculate average rating using the separate function
+        const averageRating = calculateAverageRating(reviews);
+
+        // Update star display based on the average rating
         stars.forEach((star, index) => {
             star.classList.remove('fa-star', 'fa-star-o');
             star.classList.add(averageRating > index ? 'fa-star' : 'fa-star-o');
         });
 
+        // Update the container's data attribute with the average rating
         ratingContainer.setAttribute('data-rating', averageRating);
     }
 
