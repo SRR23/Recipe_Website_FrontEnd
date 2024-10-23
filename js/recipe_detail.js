@@ -87,37 +87,56 @@ document.addEventListener('DOMContentLoaded', function () {
                 displayReviews(data.reviews);
 
                 // Update star rating based on reviews
-                updateStarRating(data.reviews);
+                const averageRating = calculateAverageRating(data.reviews);
+                updateAverageRating(averageRating);
 
             })
             .catch(error => console.error('Error fetching recipe details:', error));
     }
 
 
-    // Function to calculate the average rating from reviews
-    // function calculateAverageRating(reviews) {
-    //     if (reviews.length === 0) return 0;
-    //     const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
-    //     return (totalRating / reviews.length).toFixed(1); // Return average rounded to one decimal
-    // }
+    // Calculate and display the average rating
+    function calculateAverageRating(reviews) {
+        if (reviews.length === 0) {
+            return 0; // If no reviews, return 0
+        }
 
-    // Function to update star rating display
-    // function updateStarRating(reviews) {
-    //     const ratingContainer = document.getElementById('recipe-rating');
-    //     const stars = ratingContainer.querySelectorAll('i');
+        const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
+        const averageRating = (totalRating / reviews.length).toFixed(1); // One decimal point
+        return parseFloat(averageRating);
+    }
 
-    //     // Calculate average rating using the separate function
-    //     const averageRating = calculateAverageRating(reviews);
+    // Update the average rating in the DOM and display stars
+    function updateAverageRating(averageRating) {
+        const ratingsDiv = document.querySelector('.ratings');
+        const starRatingDiv = document.getElementById('star-rating');
 
-    //     // Update star display based on the average rating
-    //     stars.forEach((star, index) => {
-    //         star.classList.remove('fa-star', 'fa-star-o');
-    //         star.classList.add(averageRating > index ? 'fa-star' : 'fa-star-o');
-    //     });
+        // Set the data-rating attribute
+        ratingsDiv.setAttribute('data-rating', averageRating);
 
-    //     // Update the container's data attribute with the average rating
-    //     ratingContainer.setAttribute('data-rating', averageRating);
-    // }
+        // Clear any previous star icons
+        ratingsDiv.innerHTML = '';
+
+        // Display star rating
+        const fullStars = Math.floor(averageRating); // Full stars (whole number)
+        const maxStars = 5;
+
+        // Add full stars
+        for (let i = 0; i < fullStars; i++) {
+            const fullStar = document.createElement('i');
+            fullStar.classList.add('fa', 'fa-star'); // Font Awesome full star
+            ratingsDiv.appendChild(fullStar);
+        }
+
+        // Add empty stars to complete the 5-star system
+        const starsToFill = maxStars - fullStars; // Calculate remaining stars
+        for (let i = 0; i < starsToFill; i++) {
+            const emptyStar = document.createElement('i');
+            emptyStar.classList.add('fa', 'fa-star-o'); // Font Awesome empty star
+            ratingsDiv.appendChild(emptyStar);
+        }
+    }
+
 
     // Display reviews
     function displayReviews(reviews) {
